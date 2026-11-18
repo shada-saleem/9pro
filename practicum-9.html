@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Smart Energy Monitoring - EcoTrack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #eaf2f2;
+            color: #333333;
+        }
+
+        h1 {
+            color: darkgreen;
+            text-align: center;
+        }
+
+        h2 {
+            color: #246b50;
+        }
+
+        h3 {
+            color: darkgreen;
+        }
+
+        p {
+            color: #333333;
+            font-size: 16px;
+        }
+
+        a {
+            color: darkgreen;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            position: static;
+            background-color: white;
+            border: 2px solid #8bb7a5;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        /* Practicum 5: Flexbox Navigation Menu */
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            background-color: #246b50;
+            padding: 10px;
+            margin: 0;
+            position: relative;
+        }
+
+        .menu li {
+            padding: 10px 20px;
+        }
+
+        .menu a {
+            color: white;
+        }
+
+        /* Hover Drop-down Menu */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #246b50;
+            min-width: 150px;
+            padding: 0;
+            top: 35px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .dropdown-menu li {
+            list-style-type: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+        }
+
+        /* Practicum 5: CSS Grid Dashboard */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .box {
+            background-color: #d5eee2;
+            border: 2px solid #4c9675;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Practicum 6: Relative Positioning */
+
+        .intro {
+            position: relative;
+            left: 10px;
+            top: 5px;
+        }
+
+        /* Practicum 6: Absolute Positioning */
+
+        .image-container {
+            position: relative;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: white;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Practicum 6: Fixed Positioning */
+
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #246b50;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        table {
+            border-color: #8bb7a5;
+        }
+
+        /* Practicum 7: Responsive Image Gallery */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Text Overlay */
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+        }
+
+        .overlay h3 {
+            color: white;
+            margin: 0;
+            font-size: 17px;
+        }
+
+        /* Practicum 7: Tablet Responsiveness */
+
+        @media screen and (max-width: 768px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu {
+                flex-wrap: wrap;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        /* Practicum 7: Mobile Responsiveness */
+
+        @media screen and (max-width: 480px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                flex-direction: column;
+            }
+
+            .menu li {
+                padding: 8px;
+            }
+
+            .container {
+                margin: 5px;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .gallery-card img {
+                height: 200px;
+            }
+
+            .fixed-button {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+        }
+        /* Practicum 9: CSS Animations */
+
+.intro h2 {
+    animation: slideText 3s ease-in-out infinite;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Fixed Positioning Example -->
+
+    <a href="#" class="fixed-button">Back to Top ↑</a>
+
+    <!-- Navigation Menu -->
+
+    <div class="container">
+
+        <ul class="menu">
+
+            <li>
+                <a href="homepage.html">Home</a>
+            </li>
+
+            <li>
+                <a href="#dashboard">Dashboard</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="#">Explore &#9662;</a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="#devices">Devices</a>
+                    </li>
+
+                    <li>
+                        <a href="#tips">Energy Tips</a>
+                    </li>
+
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="#videos">Videos</a>
+                    </li>
+
+                    <li>
+                        <a href="#location">Location</a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="PRACTICUM-3_registration form.html">
+                    Create Account
+                </a>
+            </li>
+
+        </ul>
+
+        <center>
+
+            <img src="image/ecotrack logo.png"
+                 alt="ecotrack logo"
+                 width="200"
+                 height="200">
+
+        </center>
+
+        <center>
+
+            <h1 style="background-color: #d5eee2; border-radius: 10px;">
+                Smart Energy<br>Monitoring
+            </h1>
+
+        </center>
+
+        <audio controls autoplay loop muted>
+            <source src="audio/ecotrack.mp4" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <center>
+
+            <p>
+                <b>
+                    Track, analyze and reduce your energy consumption
+                    with IoT technology.
+                </b>
+            </p>
+
+        </center>
+
+    </div>
+
+    <hr>
+
+    <!-- Introduction Section -->
+
+    <div class="container">
+
+        <table width="100%">
+
+            <tr>
+
+                <td>
+
+                    <div class="image-container">
+
+                        <img src="image/ecotrack pic.png"
+                             height="400"
+                             width="600"
+                             alt="ecotrack pic"
+                             loading="lazy">
+
+                        <span class="image-label">
+                            EcoTrack
+                        </span>
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <div class="intro">
+
+                        <h2>Smarter Energy. Smarter Living.</h2>
+
+                        <p class="description">
+                            EcoTrack helps you monitor your electricity
+                            consumption using smart IoT technology.
+                            Track your energy usage, identify power-hungry
+                            devices, and understand where your electricity
+                            is being spent.
+
+                            With real-time insights and simple
+                            recommendations, EcoTrack helps you save energy,
+                            reduce costs, and live more sustainably.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- Practicum 7: Responsive Image Gallery -->
+
+    <div class="container" id="gallery">
+
+        <h2><u>Explore Smart Energy</u></h2>
+
+        <p>
+            Discover how smart technology and sustainable practices
+            help us manage energy efficiently.
+        </p>
+
+        <div class="gallery">
+
+            <!-- Image 1 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic1.png"
+                     alt="Smart Energy Monitoring"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>Smart Energy Monitoring</h3>
+                </div>
+
+            </div>
+
+            <!-- Image 2 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic2.png"
+                     alt="Renewable Energy"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>Renewable Energy</h3>
+                </div>
+
+            </div>
+
+            <!-- Image 3 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic3.png"
+                     alt="Energy Efficient Appliances"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>Energy Efficient Appliances</h3>
+                </div>
+
+            </div>
+
+            <!-- Image 4 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic4.png"
+                     alt="Energy Analysis"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>Energy Analysis</h3>
+                </div>
+
+            </div>
+
+            <!-- Image 5 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic5.png"
+                     alt="IoT Technology"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>IoT Technology</h3>
+                </div>
+
+            </div>
+
+            <!-- Image 6 -->
+
+            <div class="gallery-card">
+
+                <img src="image/pic6.png"
+                     alt="Sustainable Living"
+                     loading="lazy">
+
+                <div class="overlay">
+                    <h3>Sustainable Living</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Energy Dashboard -->
+
+    <div class="container" id="dashboard">
+
+        <h2><u>Energy Consumption Dashboard</u></h2>
+
+        <div class="dashboard">
+
+            <div class="box">
+                Current Power<br>
+                <b>1.85 kW</b>
+            </div>
+
+            <div class="box">
+                Today's Usage<br>
+                <b>8.42 kWh</b>
+            </div>
+
+            <div class="box">
+                This Month<br>
+                <b>245.6 kWh</b>
+            </div>
+
+            <div class="box">
+                This Month Cost<br>
+                <b>$150</b>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Graph, Devices and Energy Saving Tips -->
+
+    <div class="container">
+
+        <table border="1" cellpadding="30" width="100%" cellspacing="10">
+
+            <tr>
+
+                <td>
+
+                    <img src="image/energy graph.png"
+                         alt="energy dashboard graph"
+                         height="400"
+                         width="600"
+                         align="left"
+                         loading="lazy">
+
+                </td>
+
+                <td id="devices">
+
+                    <h3>Device Consumption</h3>
+                    <hr>
+
+                    <h4>Air Conditioner</h4>
+                    <p>1.20 kW</p>
+                    <hr>
+
+                    <h4>Water Heater</h4>
+                    <p>0.85 kW</p>
+                    <hr>
+
+                    <h4>Refrigerator</h4>
+                    <p>0.35 kW</p>
+                    <hr>
+
+                    <h4>Lights</h4>
+                    <p>0.28 kW</p>
+
+                </td>
+
+                <td id="tips" style="vertical-align: top;">
+
+                    <h3><u>Energy Saving Tips</u></h3>
+
+                    <ul>
+
+                        <li>
+                            <b>Turn off unused lights</b>
+                            <br>
+                            Switch off lights when leaving the room.
+                        </li>
+
+                        <li>
+                            <b>Unplug idle devices</b>
+                            <br>
+                            Some devices continue using power even
+                            when turned off.
+                        </li>
+
+                        <li>
+                            <b>Use AC efficiently</b>
+                            <br>
+                            Avoid unnecessarily low temperature settings.
+                        </li>
+
+                        <li>
+                            <b>Use natural light</b>
+                            <br>
+                            Make use of daylight whenever possible.
+                        </li>
+
+                    </ul>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <hr>
+
+    <!-- Video Section -->
+
+    <div class="container" id="videos">
+
+        <table width="100%" cellpadding="20" cellspacing="10">
+
+            <tr>
+
+                <td>
+
+                    <iframe
+                        width="100%"
+                        height="500"
+                        src="https://www.youtube.com/embed/JbZVwT1UXak?si=2CTofFwUbDM1iskq"
+                        title="YouTube Video"
+                        allowfullscreen>
+                    </iframe>
+
+                </td>
+
+                <td>
+
+                    <video src="image/iot video.mp4"
+                           width="100%"
+                           height="500"
+                           controls
+                           autoplay
+                           loop>
+                    </video>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <hr>
+
+    <!-- Location and PDF Section -->
+
+    <div class="container" id="location">
+
+        <h2>Our Location</h2>
+
+        <table width="100%" cellpadding="20" cellspacing="10">
+
+            <tr>
+
+                <td>
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Mumbai,Maharashtra&output=embed"
+                        width="600"
+                        height="450"
+                        style="border: 0; border-radius: 10px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+
+                </td>
+
+                <td>
+
+                    <embed
+                        src="image/embed image ecotrack.pdf"
+                        type="application/pdf"
+                        width="600"
+                        height="400">
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
